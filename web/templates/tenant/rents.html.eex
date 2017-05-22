@@ -1,0 +1,17 @@
+<h3> Rents: </h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for rent <- @tenant.rents do %>
+    <tr>
+      <td><%= rent.start_date %></td>
+      <td><%= rent.end_date %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

@@ -1,0 +1,27 @@
+<h2>Show tenant</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @tenant.name %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @tenant.email %>
+  </li>
+
+  <li>
+    <strong>Contact number:</strong>
+    <%= @tenant.contact_number %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: tenant_path(@conn, :edit, @tenant) %>
+<%= link "Back", to: tenant_path(@conn, :index) %>
+
+<%= render "rent_form.html", tenant: @tenant, changeset: @changeset, action: tenant_tenant_path(@conn, :add_rent, @tenant) %>
+
+<%= render "rents.html", tenant: @tenant %>
