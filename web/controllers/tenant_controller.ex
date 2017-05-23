@@ -71,6 +71,10 @@ defmodule HostelManagement.TenantController do
     changeset = Rent.changeset(%Rent{}, Map.put(rent_params, "tenant_id", tenant_id))
     tenant = Tenant |> Repo.get(tenant_id) |> Repo.preload([:rents])
 
+      IO.puts "***********"
+      IO.inspect changeset
+      IO.puts "***********"
+
       if changeset.valid? do
         Repo.insert(changeset)
 
