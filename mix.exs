@@ -38,8 +38,9 @@ defmodule HostelManagement.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:timex, "~> 2.1"},
-     {:timex_ecto, "~> 1.1.3"}]
+     {:timex, "~> 3.1.15"},
+     {:timex_ecto, "~> 3.1.1"},
+     {:poison, "~> 2.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

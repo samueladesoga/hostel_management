@@ -68,12 +68,13 @@ defmodule HostelManagement.TenantController do
   end
 
   def add_rent(conn, %{"rent" => rent_params, "tenant_id" => tenant_id}) do
-    changeset = Rent.changeset(%Rent{}, Map.put(rent_params, "tenant_id", tenant_id))
-    tenant = Tenant |> Repo.get(tenant_id) |> Repo.preload([:rents])
+    fix_date = fn(date_string) -> [year, month, day] = String.split(date_string, "/"); %{"month" => month, "day" => day, "year" => year} end
+    fixed_rent_param = rent_params
+    |> Map.update!("start_date", fix_date)
+    |> Map.update!("end_date", fix_date)
 
-      IO.puts "***********"
-      IO.inspect changeset
-      IO.puts "***********"
+    changeset = Rent.changeset(%Rent{}, Map.put(fixed_rent_param, "tenant_id", tenant_id))
+    tenant = Tenant |> Repo.get(tenant_id) |> Repo.preload([:rents])
 
       if changeset.valid? do
         Repo.insert(changeset)

@@ -2,8 +2,8 @@ defmodule HostelManagement.Rent do
   use HostelManagement.Web, :model
 
   schema "rents" do
-    field :start_date, Timex.Ecto.Date
-    field :end_date, Timex.Ecto.Date
+    field :start_date, Ecto.Date
+    field :end_date, Ecto.Date
     belongs_to :tenant, HostelManagement.Tenant, foreign_key: :tenant_id
 
     timestamps()
