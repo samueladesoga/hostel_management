@@ -14,7 +14,7 @@ defmodule HostelManagement.Rent do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:start_date, :end_date])
-    |> validate_required([:start_date, :end_date])
+    |> cast(params, [:start_date, :end_date, :tenant_id])
+    |> validate_required([:start_date, :end_date, :tenant_id])
   end
 end
