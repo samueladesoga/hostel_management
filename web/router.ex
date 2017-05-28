@@ -20,6 +20,7 @@ defmodule HostelManagement.Router do
     resources "/tenants", TenantController do 
       post "/rent", TenantController, :add_rent
     end
+    resources "/users", UserController, only: [:show, :new, :create]
   end
 
   # Other scopes may use custom stacks.
